@@ -96,35 +96,114 @@ stroke-width: 6px;
 <br />
 
 <h2 class="pTitle">Blog</h2>
-
+<div id="recent-posts"></div>
 <div class="garis">
 <script type="text/javascript">
-
 function rcentbytag(e) {
-document.write('<ul class="recent-by-tag">'); for (var t = 0; t < numposts; t++) {
-var n = e.feed.entry[t]; var r = n.title.$t; var i; if (t == e.feed.entry.length)break; for (var o = 0; o < n.link.length; o++) {
-if (n.link[o].rel == "replies" && n.link[o].type == "text/html") {
-var u = n.link[o].title; var f = n.link[o].href
-}if (n.link[o].rel == "alternate") {
-i = n.link[o].href; break
-}}var l; try {
-l = n.media$thumbnail.url
-}catch(h) {
-s = n.content.$t; a = s.indexOf("<img class='rct-thumb'"); b = s.indexOf('src="', a); c = s.indexOf('"', b+5); d = s.substr(b+5, c-b-5); if (a!=-1 && b!=-1 && c!=-1 && d != "") {
-l = d
-} else l = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv1yfllppDhv4x59JBpf0zgExwFju9SwshnI4nwp3rbRIFvCd7f4UZ99yq1jNbHuepSrqvA0jDk58nCQsBHsqM61xN7-kOCvGIVlSXOi5lGlxuSrvp-EHELXSEH6WGpFqGMcE8YKpL_os/s100/Batamusik-noimage.png"
-}var p = n.published.$t; var v = p.substring(0, 4); var m = p.substring(5, 7); var g = p.substring(8, 10); var y = new Array; y[1] = "Jan"; y[2] = "Feb"; y[3] = "Mar"; y[4] = "Apr"; y[5] = "Mei"; y[6] = "Jun"; y[7] = "Jul"; y[8] = "Agt"; y[9] = "Sep"; y[10] = "Okt"; y[11] = "Nov"; y[12] = "Des"; document.write('<li class="clear">'); if (showpostthumbnails == true)document.write('<a href="'+i+'" title="'+r+'"><img class="rct-thumb" alt="'+r+'" src="'+l+'"/></a>'); document.write('<strong><a href="'+i+'" title="'+r+'" rel="nofollow">'+r+'</a></strong>'); document.write('<br>'); var x = ""; var T = 0; if (showpostdate == true) {
-x = '<span class="showdates">'+x+g+" "+y[parseInt(m, 10)]+" "+v+"</span>"; T = 1
-}document.write(x); document.write("</li>"); if (t != numposts-1)document.write("")}document.write("</ul>")}
+    var ul = document.createElement("ul");
+    ul.className = "recent-by-tag";
 
-document.write("<script src=\"https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentbytag\"><\/script>");
+    for (var t = 0; t < numposts; t++) {
+        var n = e.feed.entry[t];
+        if (!n) break;
+
+        var li = document.createElement("li");
+        li.className = "clear";
+
+        var title = n.title.$t;
+        var link;
+        for (var o = 0; o < n.link.length; o++) {
+            if (n.link[o].rel == "alternate") {
+                link = n.link[o].href;
+                break;
+            }
+        }
+
+        var imgSrc;
+        try {
+            imgSrc = n.media$thumbnail.url;
+        } catch (h) {
+            var s = n.content.$t;
+            var a = s.indexOf("<img class='rct-thumb'");
+            var b = s.indexOf('src="', a);
+            var c = s.indexOf('"', b + 5);
+            var d = s.substr(b + 5, c - b - 5);
+            if (a != -1 && b != -1 && c != -1 && d != "") {
+                imgSrc = d;
+            } else {
+                imgSrc =
+                    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv1yfllppDhv4x59JBpf0zgExwFju9SwshnI4nwp3rbRIFvCd7f4UZ99yq1jNbHuepSrqvA0jDk58nCQsBHsqM61xN7-kOCvGIVlSXOi5lGlxuSrvp-EHELXSEH6WGpFqGMcE8YKpL_os/s100/Batamusik-noimage.png";
+            }
+        }
+
+        if (showpostthumbnails) {
+            var img = document.createElement("img");
+            img.className = "rct-thumb";
+            img.alt = title;
+            img.src = imgSrc;
+
+            var a = document.createElement("a");
+            a.href = link;
+            a.title = title;
+            a.appendChild(img);
+
+            li.appendChild(a);
+        }
+
+        var strong = document.createElement("strong");
+        var aTitle = document.createElement("a");
+        aTitle.href = link;
+        aTitle.title = title;
+        aTitle.rel = "nofollow";
+        aTitle.textContent = title;
+
+        strong.appendChild(aTitle);
+        li.appendChild(strong);
+
+        if (showpostdate) {
+            var p = n.published.$t;
+            var v = p.substring(0, 4);
+            var m = p.substring(5, 7);
+            var g = p.substring(8, 10);
+            var y = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "Mei",
+                "Jun",
+                "Jul",
+                "Agt",
+                "Sep",
+                "Okt",
+                "Nov",
+                "Des"
+            ];
+
+            var span = document.createElement("span");
+            span.className = "showdates";
+            span.textContent = g + " " + y[parseInt(m, 10)] + " " + v;
+
+            li.appendChild(document.createElement("br"));
+            li.appendChild(span);
+        }
+
+        ul.appendChild(li);
+    }
+
+    document.getElementById("recent-posts").appendChild(ul);
+}
 
 var numposts = 5;
-
 var showpostthumbnails = true;
-
 var showpostdate = false;
 
+window.onload = function () {
+    var script = document.createElement("script");
+    script.src =
+        "https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentbytag";
+    document.body.appendChild(script);
+};
 </script>
 </div>
 
