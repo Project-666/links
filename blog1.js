@@ -1,4 +1,4 @@
-function rcentbytag(e) {
+function blog1(e) {
     var ul = document.createElement("ul");
     ul.className = "recent-by-tag";
 
@@ -100,6 +100,6 @@ var showpostdate = false;
 window.onload = function () {
     var script = document.createElement("script");
     script.src =
-        "https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentbytag";
+        "https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=blog2";
     document.body.appendChild(script);
 };
