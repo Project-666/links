@@ -1,4 +1,4 @@
-function rcentByTag(e, containerId) {
+function rcentByTag(e) {
     var ul = document.createElement("ul");
     ul.className = "recent-by-tag";
 
@@ -90,7 +90,7 @@ function rcentByTag(e, containerId) {
         ul.appendChild(li);
     }
 
-    document.getElementById(containerId).appendChild(ul);
+    document.getElementById(rcentByTag).appendChild(ul);
 }
 
 var numposts = 5;
@@ -108,11 +108,3 @@ window.onload = function () {
         "https://music.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentByTag";
     document.getElementById("blog2").appendChild(blog2);
 };
-
-function rcentByTagBlog1(e) {
-    rcentByTag(e, "blog1");
-}
-
-function rcentByTagBlog2(e) {
-    rcentByTag(e, "blog2");
-}
