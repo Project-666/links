@@ -100,15 +100,13 @@ var showpostthumbnails = true;
 var showpostdate = false;
 
 window.onload = function () {
-    var script = document.createElement("script");
-    script.src =
+   var blog1 = document.createElement("script");
+    blog1.src =
         "https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentByTag";
-    document.getElementById("blog1").appendChild(script);
-};
+    document.getElementById("blog1").appendChild(blog1);
 
-window.onload = function () {
-    var script = document.createElement("script");
-    script.src =
+var blog2 = document.createElement("script");
+    blog2.src =
         "https://music.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentByTag";
-    document.getElementById("blog2").appendChild(script);
+    document.getElementById("blog2").appendChild(blog2);
 };
