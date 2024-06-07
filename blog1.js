@@ -90,7 +90,7 @@ function rcentbytag(e) {
         ul.appendChild(li);
     }
 
-    document.getElementById("recent-posts").appendChild(ul);
+    document.getElementById("blog1").appendChild(ul);
 }
 
 var numposts = 5;
