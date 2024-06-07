@@ -100,6 +100,6 @@ var showpostdate = false;
 window.onload = function () {
     var script = document.createElement("script");
     script.src =
-        "https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=blog2";
+        "https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=blog1";
     document.body.appendChild(script);
 };
