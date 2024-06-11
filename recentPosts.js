@@ -216,13 +216,13 @@ window.onload = function () {
     var feed1 = document.getElementById("feed1");
     var script1 = document.createElement("script");
     script1.src =
-        "https://www.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentbytag1";
+        "https://www.abengkris.com/feeds/posts/default?alt=json-in-script&callback=rcentbytag1";
     feed1.appendChild(script1);
 
     var feed2 = document.getElementById("feed2");
     var script2 = document.createElement("script");
     script2.src =
-        "https://music.abengkris.com/feeds/posts/default?orderby=updated&alt=json-in-script&callback=rcentbytag2";
+        "https://music.abengkris.com/feeds/posts/default?alt=json-in-script&callback=rcentbytag2";
     feed2.appendChild(script2);
 
     var linkAll1 = document.getElementById("linkAll1");
