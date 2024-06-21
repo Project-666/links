@@ -43,7 +43,7 @@ function rcentbytag1(e) {
             img.src = imgSrc;
 
             var a = document.createElement("a");
-            a.href = link;
+            a.href = link  + "?utm_source=link_bio&utm_medium=rss";
             a.title = title;
             a.appendChild(img);
 
