@@ -139,7 +139,7 @@ function rcentbytag2(e) {
             img.src = imgSrc;
 
             var a = document.createElement("a");
-            a.href = link;
+            a.href = link + "?utm_source=link_bio&utm_medium=rss";
             a.title = title;
             a.appendChild(img);
 
@@ -148,7 +148,7 @@ function rcentbytag2(e) {
 
         var strong = document.createElement("strong");
         var aTitle = document.createElement("a");
-        aTitle.href = link;
+        aTitle.href = link + "?utm_source=link_bio&utm_medium=rss";
         aTitle.title = title;
         aTitle.rel = "nofollow";
         aTitle.textContent = title;
@@ -229,7 +229,7 @@ window.onload = function () {
     var divLbio1 = document.createElement("div");
     divLbio1.className = "lBio";
     var a1 = document.createElement("a");
-    a1.href = "https://www.abengkris.com";
+    a1.href = "https://www.abengkris.com?utm_source=link_bio&utm_medium=button";
     a1.textContent = "Lihat Semua Blog";
     divLbio1.appendChild(a1);
     linkAll1.appendChild(divLbio1);
@@ -238,7 +238,7 @@ window.onload = function () {
     var divLbio2 = document.createElement("div");
     divLbio2.className = "lBio";
     var a2 = document.createElement("a");
-    a2.href = "https://music.abengkris.com";
+    a2.href = "https://music.abengkris.com?utm_source=link_bio&utm_medium=button";
     a2.textContent = "Lihat Semua Musik";
     divLbio2.appendChild(a2);
     linkAll2.appendChild(divLbio2);
