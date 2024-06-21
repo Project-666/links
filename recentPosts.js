@@ -52,9 +52,9 @@ function rcentbytag1(e) {
 
         var strong = document.createElement("strong");
         var aTitle = document.createElement("a");
-        aTitle.href = link;
+        aTitle.href = link + "?utm_source=link_bio&utm_medium=rss";
         aTitle.title = title;
-        aTitle.rel = "nofollow";
+        aTitle.rel = "opener";
         aTitle.textContent = title;
 
         strong.appendChild(aTitle);
