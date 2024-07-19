@@ -2,6 +2,12 @@ const autoTranslate = true;
 const currentUrl = new URL(window.location.href);
 const langParam = currentUrl.searchParams.get("hl");
 const webLang = document.documentElement.lang;
+const widgetCss =
+  "#google_translate_element,.skiptranslate{display:none;}body{top:0 !important;}";
+const elStyle = document.createElement("style");
+elStyle.classList.add("translateCss");
+elStyle.textContent = widgetCss;
+document.head.appendChild(elStyle);
 
 if (!document.getElementById("google_translate_element")) {
   const elDiv = document.createElement("div");
@@ -70,5 +76,5 @@ window.googleTranslateElementInit = function () {
 };
 
 if (!autoTranslate && langParam) {
-    window.googleTranslateElementInit();
+  window.googleTranslateElementInit();
 }
