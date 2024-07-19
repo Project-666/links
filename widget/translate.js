@@ -3,7 +3,7 @@ const currentUrl = new URL(window.location.href);
 const langParam = currentUrl.searchParams.get("hl");
 const webLang = document.documentElement.lang;
 const widgetCss =
-  "#google_translate_element,.skiptranslate{display:none;}body{top:0 !important;}";
+  "#google_translate_element,.skiptranslate{display:none;}body{top:0px !important;}";
 const elStyle = document.createElement("style");
 elStyle.classList.add("translateCss");
 elStyle.textContent = widgetCss;
