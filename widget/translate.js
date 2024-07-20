@@ -1,5 +1,5 @@
-const autoTranslate = !currentUrl.searchParams.has("hl");
 const currentUrl = new URL(window.location.href);
+const autoTranslate = !currentUrl.searchParams.has("hl");
 const langParam = currentUrl.searchParams.get("hl");
 const webLang = document.documentElement.lang;
 const widgetCss =
