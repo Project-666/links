@@ -1,4 +1,4 @@
-const autoTranslate = true;
+const autoTranslate = false;
 const currentUrl = new URL(window.location.href);
 const langParam = currentUrl.searchParams.get("hl");
 const webLang = document.documentElement.lang;
