@@ -1,4 +1,4 @@
-const autoTranslate = true;
+const autoTranslate = !currentUrl.searchParams.has("hl");
 const currentUrl = new URL(window.location.href);
 const langParam = currentUrl.searchParams.get("hl");
 const webLang = document.documentElement.lang;
@@ -48,6 +48,24 @@ function getUserLang() {
   return userLang.split("-")[0];
 }
 
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
 function updateUrlLangParam(webLang, langParam) {
   if (webLang === "id" && langParam) {
     currentUrl.searchParams.delete("hl");
@@ -91,6 +109,8 @@ window.googleTranslateElementInit = function () {
         updateUrlLangParam(webLang, langParam);
         addHreflang();
       }, 1500);
+    } else {
+      setCookie('userLang', langParam, 30);
     }
   } catch (error) {
     console.error("Error initializing Google Translate:", error);
