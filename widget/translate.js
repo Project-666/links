@@ -18,10 +18,10 @@ function addHreflang() {
     { lang: "fr", url: baseUrl + "?hl=fr" },
     { lang: "ja", url: baseUrl + "?hl=ja" },
     { lang: "ru", url: baseUrl + "?hl=ru" },
-    { lang: "id", url: baseUrl + "?hl=id" },
+    { lang: "id", url: baseUrl + "?hl=in" },
   ];
 
-  languages.forEach(language => {
+  languages.forEach((language) => {
     const link = document.createElement("link");
     link.rel = "alternate";
     link.hreflang = language.lang;
