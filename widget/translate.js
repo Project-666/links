@@ -51,11 +51,31 @@ function getUserLang() {
 function updateUrlLangParam(webLang, langParam) {
   if (langParam === "id") {
     return;
-  } else (langParam !== "id" && langParam !== webLang) {
+  } else if (langParam !== "id" && langParam !== webLang) {
     currentUrl.searchParams.set("hl", webLang);
     if (window.location.href !== currentUrl.href) {
       window.history.replaceState({}, "", currentUrl);
-      window.location.reload();
+
+      // Update content within the div with class 'mainC'
+      const contentElement = document.querySelector('.mainC');
+      if (contentElement) {
+        const newUrl = currentUrl.href;
+        fetch(newUrl)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const newDoc = parser.parseFromString(html, 'text/html');
+            const newContent = newDoc.querySelector('.mainC'); // Asumsi kelas 'mainC' juga ada di halaman baru
+            if (newContent) {
+              contentElement.innerHTML = newContent.innerHTML;
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching content:", error);
+          });
+      } else {
+        console.warn("Element with class 'mainC' not found. Update logic might not work as expected.");
+      }
     }
   }
 }
