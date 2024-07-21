@@ -18,7 +18,7 @@ function addHreflang() {
     { lang: "fr", url: baseUrl + "?hl=fr" },
     { lang: "ja", url: baseUrl + "?hl=ja" },
     { lang: "ru", url: baseUrl + "?hl=ru" },
-    { lang: "id", url: baseUrl + "?hl=in" },
+    { lang: "id", url: baseUrl + "?hl=id" },
   ];
 
   languages.forEach((language) => {
@@ -48,38 +48,6 @@ function getUserLang() {
   return userLang.split("-")[0];
 }
 
-// function updateUrlLangParam(webLang, langParam) {
-//   if (langParam === "id") {
-//     return;
-//   } else if (langParam !== "id" && langParam !== webLang) {
-//     currentUrl.searchParams.set("hl", webLang);
-//     if (window.location.href !== currentUrl.href) {
-//       window.history.replaceState({}, "", currentUrl);
-
-//       // Update content within the div with class 'mainC'
-//       const contentElement = document.querySelector('.mainC');
-//       if (contentElement) {
-//         const newUrl = currentUrl.href;
-//         fetch(newUrl)
-//           .then(response => response.text())
-//           .then(html => {
-//             const parser = new DOMParser();
-//             const newDoc = parser.parseFromString(html, 'text/html');
-//             const newContent = newDoc.querySelector('.mainC'); // Asumsi kelas 'mainC' juga ada di halaman baru
-//             if (newContent) {
-//               contentElement.innerHTML = newContent.innerHTML;
-//             }
-//           })
-//           .catch(error => {
-//             console.error("Error fetching content:", error);
-//           });
-//       } else {
-//         console.warn("Element with class 'mainC' not found. Update logic might not work as expected.");
-//       }
-//     }
-//   }
-// }
-
 window.googleTranslateElementInit = function () {
   if (currentUrl.searchParams.has("hl")) {
     autoTranslate = false;
@@ -104,14 +72,6 @@ window.googleTranslateElementInit = function () {
         selectElement.dispatchEvent(new Event("change"));
       }
     }, 1000);
-
-    // if (autoTranslate) {
-    //   setTimeout(() => {
-    //     const webLang = document.documentElement.lang;
-    //     updateUrlLangParam(webLang, langParam);
-    //     addHreflang();
-    //   }, 1500);
-    // }
   } catch (error) {
     console.error("Error initializing Google Translate:", error);
   }
