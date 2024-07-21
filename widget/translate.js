@@ -87,14 +87,14 @@ window.googleTranslateElementInit = function () {
         selectElement.value = lang;
         selectElement.dispatchEvent(new Event("change"));
       }
-    }, 500);
+    }, 1000);
 
     if (autoTranslate) {
       setTimeout(() => {
         const webLang = document.documentElement.lang;
         updateUrlLangParam(webLang, langParam);
         addHreflang();
-      }, 1000);
+      }, 1500);
     }
   } catch (error) {
     console.error("Error initializing Google Translate:", error);
