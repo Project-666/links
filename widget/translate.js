@@ -49,7 +49,9 @@ function getUserLang() {
 }
 
 function updateUrlLangParam(webLang, langParam) {
-  if (langParam !== webLang) {
+  if (langParam === "id") {
+    return;
+  } else (langParam !== "id" && langParam !== webLang) {
     currentUrl.searchParams.set("hl", webLang);
     if (window.location.href !== currentUrl.href) {
       window.history.replaceState({}, "", currentUrl);
