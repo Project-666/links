@@ -59,6 +59,8 @@ window.googleTranslateElementInit = function () {
       {
         pageLanguage: "auto",
         includedLanguages: lang,
+        gaTrack: true,
+        gaId: "G-DXSN9M7VPW"
       },
       "google_translate_element"
     );
