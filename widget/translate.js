@@ -57,7 +57,7 @@ window.googleTranslateElementInit = function () {
     const lang = autoTranslate ? getUserLang() : langParam || webLang;
     new google.translate.TranslateElement(
       {
-        pageLanguage: "id",
+        pageLanguage: "auto",
         includedLanguages: lang,
       },
       "google_translate_element"
