@@ -9,7 +9,8 @@ elStyle.classList.add("translateCss");
 elStyle.textContent = widgetCss;
 document.head.appendChild(elStyle);
 const ga = window.tAnalytics;
-console.log("gaTrack:", ga.track); console.log("gaId:", ga.id);
+console.log("gaTrack:", ga.track);
+console.log("gaId:", ga.id);
 
 if (!document.getElementById("google_translate_element")) {
   const elDiv = document.createElement("div");
