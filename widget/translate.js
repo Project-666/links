@@ -9,27 +9,6 @@ elStyle.classList.add("translateCss");
 elStyle.textContent = widgetCss;
 document.head.appendChild(elStyle);
 
-function addHreflang() {
-  const baseUrl = currentUrl.origin + currentUrl.pathname;
-
-  const languages = [
-    { lang: "en", url: baseUrl + "?hl=en" },
-    { lang: "nl", url: baseUrl + "?hl=nl" },
-    { lang: "fr", url: baseUrl + "?hl=fr" },
-    { lang: "ja", url: baseUrl + "?hl=ja" },
-    { lang: "ru", url: baseUrl + "?hl=ru" },
-    { lang: "id", url: baseUrl + "?hl=id" },
-  ];
-
-  languages.forEach((language) => {
-    const link = document.createElement("link");
-    link.rel = "alternate";
-    link.hreflang = language.lang;
-    link.href = language.url;
-    document.head.appendChild(link);
-  });
-}
-
 if (!document.getElementById("google_translate_element")) {
   const elDiv = document.createElement("div");
   elDiv.id = "google_translate_element";
@@ -59,8 +38,8 @@ window.googleTranslateElementInit = function () {
       {
         pageLanguage: "auto",
         includedLanguages: lang,
-        gaTrack: true,
-        gaId: "G-DXSN9M7VPW"
+        gaTrack: ga.track,
+        gaId: ga.id
       },
       "google_translate_element"
     );
