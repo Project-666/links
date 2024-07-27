@@ -8,9 +8,6 @@ const elStyle = document.createElement("style");
 elStyle.classList.add("translateCss");
 elStyle.textContent = widgetCss;
 document.head.appendChild(elStyle);
-const ga = window.tAnalytics;
-console.log("gaTrack:", ga.track);
-console.log("gaId:", ga.id);
 
 if (!document.getElementById("google_translate_element")) {
   const elDiv = document.createElement("div");
@@ -40,9 +37,7 @@ window.googleTranslateElementInit = function () {
     new google.translate.TranslateElement(
       {
         pageLanguage: "auto",
-        includedLanguages: lang,
-        gaTrack: ga.track,
-        gaId: ga.id
+        includedLanguages: lang
       },
       "google_translate_element"
     );
