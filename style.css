@@ -329,11 +329,12 @@ span.showdates {
   display: flex;
   justify-content: center;
   align-self: center;
-  border-bottom-right-radius: 10px;
+  border-radius: 10px;
   cursor: pointer;
 }
 .btcCont:hover {
   background-color: white;
+  color: black;
 }
 .btc {
   margin-right: 7px;
@@ -342,7 +343,4 @@ span.showdates {
 #btc {
   font-size: 0.8em;
   color: white;
-}
-#btc:hover {
-  color: black;
 }
