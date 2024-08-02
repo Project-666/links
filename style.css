@@ -321,7 +321,6 @@ span.showdates {
 }
 
 .btcCont {
-  color: white;
   position: absolute;
   top: 0;
   left: 0;
@@ -338,4 +337,5 @@ span.showdates {
 }
 #btc {
   font-size: 0.8em;
+  color: white;
 }
