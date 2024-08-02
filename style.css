@@ -351,3 +351,14 @@ span.showdates {
   font-size: 0.8em;
   color: white;
 }
+.price-change {
+  font-size: 0.8em;
+}
+
+.price-change.positive {
+  color: green;
+}
+
+.price-change.negative {
+  color: red;
+}
