@@ -321,19 +321,20 @@ span.showdates {
 }
 
 .btcCont {
-  position: sticky;
-  top: 0;
-  left: 0;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  z-index: 10;
+  position: fixed;
   display: flex;
-  justify-content: center;
-  align-self: center;
-  border-radius: 10px;
-  cursor: pointer;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  text-align: center;
 }
 .btcCont:hover {
   background-color: white;
