@@ -2,7 +2,7 @@ async function fetchOHLC() {
     const from = Math.floor(Date.now() / 1000) - 24 * 60 * 60; // 24 hours ago
     const to = Math.floor(Date.now() / 1000); // now
     const symbol = "btcidr";
-    const tf = "1"; // 1 hour time frame
+    const tf = "60"; // 1 hour time frame
 
     const url = `https://indodax.com/tradingview/history_v2?from=${from}&symbol=${symbol}&tf=${tf}&to=${to}`;
 
