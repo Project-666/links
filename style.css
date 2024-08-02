@@ -350,6 +350,7 @@ span.showdates {
 #btc {
   font-size: 0.8em;
   color: white;
+  margin-right: 7px;
 }
 .price-change {
   font-size: 0.8em;
