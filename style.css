@@ -325,7 +325,10 @@ span.showdates {
   top: 0;
   left: 0;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-self: center;
