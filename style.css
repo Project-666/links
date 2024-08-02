@@ -319,3 +319,23 @@ span.showdates {
   margin: 5px 0;
   color: white;
 }
+
+.btcCont {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border-bottom-right-radius: 10px;
+}
+.btc {
+  margin-right: 7px;
+  padding-bottom: -20px;
+}
+#btc {
+  font-size: 0.8em;
+}
