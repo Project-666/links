@@ -24,4 +24,4 @@ async function fetchData() {
         console.error("Error fetching data:", error);
     }
 }
-setInterval(fetchData, 1000);
+setInterval(fetchData, 5000);
