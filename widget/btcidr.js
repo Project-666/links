@@ -19,7 +19,7 @@ async function fetchData() {
             second: "numeric"
         });
 
-        btc.textContent = formatter.format(ticker.buy);
+        btc.textContent = formatter.format(ticker.last);
     } catch (error) {
         console.error("Error fetching data:", error);
     }
