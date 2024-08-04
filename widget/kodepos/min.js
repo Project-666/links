@@ -1,3 +1,5 @@
+// Kode Pos Indonesia by Abengkris (abengkris.com)
+
 async function getProvinces() {
     try {
         const response = await fetch("https://links.abengkris.com/widget/kodepos/provinces.json");
